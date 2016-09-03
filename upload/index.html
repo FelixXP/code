@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>upload-demo</title>
+	<link rel="stylesheet" href="./index.css">
+	<script src="./jquery.js"></script>
+</head>
+<body>
+<form action="PUT" class="j-form">
+	<div class="tab-cover active-tab">
+		<div class="form-group upload-cover j-upload-cover">
+			<label  class="file j-newpic j-newpic-btn">
+			<input type="file" name="content"class="j-newpic">
+				<p>点击或将图片拖拽至此上传!</p>
+				<p>建议像素640*1136</p>
+		  </label>
+		</div>
+		<div class="preview j-preview hide">
+	    <div class="img-box j-img-box">
+	        <img src="#" alt="">
+	        <a href="javascript:void(0);" class="delete j-delete">删除</a>
+	    </div>
+		</div>
+	</div>
+</form>
+<script src="./upload.js"></script>
+</body>
+</html>
