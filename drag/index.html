@@ -1,0 +1,56 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag</title>
+    <style>
+    *{padding: 0;margin: 0;}
+    #item{
+      height: 100px;
+      width: 100px;
+      background-color: #ff7676;
+      position: absolute;
+      cursor: move;
+    }
+    </style>
+</head>
+
+<body>
+  <div id="item"></div>
+
+  <script>
+  window.onload = function() {
+    function drag(id){
+    	if (typeof id === "string") {
+        var elem = document.getElementById("item");
+        var x,y;
+    	}
+    	else{
+    		return false;
+    	}
+
+    	elem.onmousedown = function(event){
+      	var event = event || window.event;
+      	event.preventDefault();
+      	event.stopPropagation();
+      	x = event.clientX - elem.offsetLeft;
+      	y = event.clientY - elem.offsetTop;
+        elem.onmousemove = function(event){
+        	var event = event || window.event;
+        	event.preventDefault();
+        	event.stopPropagation();
+        	elem.style.left = (event.clientX - x) > 0 ? (event.clientX - x + "px") : (0 + "px");
+        	elem.style.top = (event.clientY - y) > 0 ? (event.clientY - y + "px") : (0 + "px");
+        }
+      }
+
+      elem.onmouseup = function(){
+      	elem.onmousemove = null;
+      }
+    }
+    drag("item");
+  }
+  </script>
+</body>
+
+</html>
